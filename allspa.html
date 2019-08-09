@@ -1,0 +1,804 @@
+
+<html>
+<head>
+<style type="text/css">
+.inline {
+  background-color: #f7f7f7;
+  border:solid 1px #B0B0B0;
+}
+.error {
+	font-weight: bold;
+	color: #FF0000;
+}
+.warning {
+	font-weight: bold;
+}
+.message {
+	font-style: italic;
+}
+.source, .output, .warning, .error, .message {
+	padding: 0 1em;
+  border:solid 1px #F7F7F7;
+}
+.source {
+  background-color: #f5f5f5;
+}
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
+}
+.center {
+  text-align: center;
+}
+.hl.num {
+  color: #AF0F91;
+}
+.hl.str {
+  color: #317ECC;
+}
+.hl.com {
+  color: #AD95AF;
+  font-style: italic;
+}
+.hl.opt {
+  color: #000000;
+}
+.hl.std {
+  color: #585858;
+}
+.hl.kwa {
+  color: #295F94;
+  font-weight: bold;
+}
+.hl.kwb {
+  color: #B05A65;
+}
+.hl.kwc {
+  color: #55aa55;
+}
+.hl.kwd {
+  color: #BC5A65;
+  font-weight: bold;
+}
+</style>
+
+<title>ScoresForecasting.com</title>
+<link rel="shortcut icon" href="logo.ico" />
+<style>
+
+.schermointero{
+  position: relative;
+  
+  
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.schermointero {
+  background-image: url("all.jpg");
+  height: 50%;
+  width:100%;
+  
+}
+
+
+/*font-family:"Segoe UI",Arial,sans-serif;
+font-family:Verdana,sans-serif;*/
+html,body{text-transform:uppercase;font-family:"Segoe UI",Arial,sans-serif;font-size:15px;line-height:1.5;text-align: justify;text-justify: inter-word;}html{overflow-x:hidden}
+h1{font-size:32px}h2{font-size:20px}h3{font-size:15px}h4{font-size:12px}h5{font-size:10px}h6{font-size:9px}
+h1,h2,h3,h4,h5,h6{font-weight:400;margin:10px 0}.w3-wide{letter-spacing:4px}
+/*pulsante per andare avanti*/
+.button {
+  display: inline-block;
+  font-size: 40px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  border-color: #E12000;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 2%;
+  width: 47%;
+  transition: all 0.5s;
+  background-color:#D2D2D2
+}
+
+.button:hover {
+  background-color: #E12000;
+  box-shadow: 0 0 0 ;}
+
+.button:active {
+  transform: translateY(4px);
+}
+
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+/*menu in alto*/
+* {box-sizing: border-box;}
+
+
+
+.header {
+  overflow: hidden;
+  background-color:transparent ;
+  
+  padding: 5px 5px;
+ position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    left:0;
+width: 100%; /* Full width */
+
+  box-shadow: 0 0 0;
+}
+
+.header a {
+  float: left;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding: 12px;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+  font-family: inherit;
+  margin: 0; 
+  color: white;
+  display: block;
+  overflow: hidden;
+}
+a {
+  
+  text-decoration: none;
+  
+}
+
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.header a:hover {
+  background-color: #00A000;
+  color: white;
+}
+
+.header a.active {
+  background-color:transparent;
+  color: white;
+  
+    
+  
+}
+
+
+.header-right {
+  float: right;
+}
+
+@media screen and (max-width: 100%) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .header-right {
+    float: none;
+  }
+}
+
+
+
+
+/* Create three equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    text-align: center;
+}
+.colonna {
+    float: left;
+    width: 60%;
+    padding: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+.immlogo1 {
+    height: 35px;
+    
+    width: 35px;
+    
+    vertical-align: text-top;
+    
+}
+.stella {
+    height: 20px;
+    
+    width: 20px;
+    
+    vertical-align: text-top;
+    
+}
+.immlogo2 {
+    height: 25px;
+    
+    width: 275px;
+    
+    vertical-align: text-top;
+    
+}
+
+
+
+.imminfo{
+    width: 10%;
+    height: auto;
+    vertical-align: middle;
+    
+    
+}
+
+
+.immpart {
+    width: 20px;
+    height: 20px;
+    vertical-align: text-top;
+    
+}
+
+.immprima {
+height:40%;
+    width: auto;
+    vertical-align: text-top;
+}
+
+.img1 {
+    
+    display: inline-block;
+    
+    vertical-align: middle;
+    
+}
+img {
+    width: 90%;
+}
+
+
+
+
+table {
+    width: 100%;
+    text-align: left;
+}
+
+th {
+    
+    height: 50%;
+}
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #006500;
+}
+
+
+h2 {
+display:inline;
+}
+
+
+
+.accordion {
+    background-color: #FFFFFF; /*#eee;*/
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    
+    border: 1px solid #006500;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+.active, .accordion:hover {
+    background-color: hsl(120, 100%, 99%); /*#ccc*/
+}
+
+.panel {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+     overflow: hidden;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  border-radius: 4px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  
+  margin-top: -1px; /* Prevent double borders */
+  overflow: hidden;
+  white-space:pre;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  /*display: block;
+  background-color: #f6f6f6;
+  border: 1px solid #ddd;*/
+}
+
+#myInput li a:hover:not(.header) {
+  background-color: #FFFFFF; /*#eee*/
+}
+
+
+
+
+
+#classifica{
+    width: 90%;
+    border: 1px solid #006500;
+    text-align: left;
+    border-collapse: collapse;
+    
+}
+</style>
+<style>
+.popup {
+
+    position: relative;
+    display: inline;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.popup .popuptext {
+    visibility: hidden;
+    width: 250px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 100%;
+    margin-left: 5px;
+}
+
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+
+
+
+#menucell{
+display:none;
+
+}
+
+.tendina{
+    width:100%;
+    height: 100%;
+    float: none;
+    top:0px;
+    position: fixed;
+    background-color: #f1f1f1;
+    left:0;
+}
+.tendina a {
+    color: #006500;
+    text-align: center;
+    float: left;
+    position: relative;
+    padding: 14px 16px;
+    text-decoration: none;
+    width:100%;
+    height:20%;
+    
+     border: 1px solid white;
+}
+.tendina a:hover {
+    color: white;
+    
+  background-color: #E12000;
+}
+
+#mytendina{
+    display:none;
+}
+
+
+
+</style>
+
+
+<style>
+/*rules*/
+
+
+@media only screen and (max-width: 1024px) {
+#menu{display: none;}
+#menucell{display: inline;}
+
+.column{display:none;}
+.colonna{width: 100%;}
+}
+
+
+
+
+/* ----------- iPhone 6+, 7+ and 8+ ----------- */
+/* Portrait */
+@media only screen and (max-width: 1024px) {
+h2{font-size:15px}
+h3{font-size:10px}
+.header a{font-size:50px}
+.header a.logo{font-size:50px}
+.immlogo1{
+ height: 60px;
+    width: auto;
+}
+
+    .header a.active {padding: 35px;}
+}
+
+@media only screen and (max-width: 835px) {
+h2{font-size:13px}
+h3{font-size:8px}
+.header a{font-size:40px}
+.header a.logo{font-size:40px}
+.immlogo1{
+ height: 50px;
+    
+    width: auto;
+}
+.header a.active {padding: 30px;}
+}
+
+
+@media only screen and (max-width: 700px) {
+h2{font-size:10px}
+h3{font-size:6px}
+.header a{font-size:30px}
+.header a.logo{font-size:30px}
+.immlogo1{
+ height: 40px;
+    
+    width: auto;
+}
+.header a.active {padding: 25px;}
+}
+
+
+
+
+@media only screen and (max-width: 525px) {
+h2{font-size:9px}
+h3{font-size:5px}
+.header a{font-size:20px}
+.header a.logo{font-size:20px}
+.immlogo1{
+ height: 30px;
+    
+    width: auto;
+}
+.header a.active {padding: 20px;}
+}
+
+@media only screen and (max-width: 370px) {
+h2{font-size:5px}
+h3{font-size:3px}
+.header a{font-size:15px}
+.header a.logo{font-size:15px}
+.immlogo1{
+ height: 25px;
+    
+    width: auto;
+}
+.header a.active {padding: 15px; }
+}
+
+
+
+
+</style>
+
+<style>
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+#myDiv {
+  display: none;
+}
+</style>
+</head>
+<body id="body" onscroll="sscroll()" onload="loader()" >
+ <div id="loader"></div>
+<div style="display:none;" id="myDiv" >
+
+
+
+<script>
+function sscroll(){
+    var body = document.getElementById("body");
+    var elmnt = document.getElementById("menupc");
+    var active = document.getElementById("active");
+    
+    var active1 = document.getElementById("active1");
+    var x = body.scrollLeft;
+    var y = body.scrollTop;
+    if (y < 200) {
+      elmnt.style.backgroundColor = 'transparent';
+      elmnt.style["boxShadow"] = '0 0 0';
+      active.style.backgroundColor = 'transparent';
+      active1.style.backgroundColor = 'transparent';
+    }
+    if (y > 200) {
+      elmnt.style.backgroundColor = '#006500';
+      elmnt.style["boxShadow"] = ' 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)';
+      active.style.backgroundColor = '#E12000';
+      active1.style.backgroundColor = '#E12000';
+    }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<div class="row">
+
+<div class="schermointero">
+<br><br><br><br><br><center>
+</center>  </div><br>
+  <div class="column" style="background-color:hsla(147, 50%, 47%, 0.01)">
+     </div>
+  
+  <div class="colonna" style="background-color:WHITE">
+  
+
+<TEXT STYLE="COLOR:BLACK"><H3>
+ <STRONG> SCORESFORECASTING </STRONG> ES UN SITIO WEB QUE OFRECE INFORMACI�N GRATUITA Y AN�LISIS SOCIAL PROFESIONAL. <BR> </H3>
+<H2 STYLE="COLOR: NEGRO"> �QUIERES JUGAR R�PIDAMENTE Y SIN PENSARLO? </ H2> <BR> <H3> RECOMENDAMOS NUESTRAS DOS HOJAS DEL JUEGO CALCULADAS CON NUESTRO ALGORITMO, HAGA CLIC EN LOS BOTONES A CONTINUACI�N, MIRAMOS '�HUELE CON LA M�S ALTA PROBABILIDAD! <BR> <H3>
+<H2 STYLE = "COLOR: NEGRO"> �ES USTED UN FUTBOL? �QUIERE realizar sus propias apuestas? </ H2> <BR> <H3> Le recomendamos LA SECCI�N A CONTINUACI�N, EN LA QUE PUEDE BUSCAR EL PARTIDO QUE USTED EST� INTERESANDO, VEA Y ANALICE LAS PRINCIPALES ESTAD�STICAS DE LOS EQUIPOS Y, basado en nuestros consejos FAe el ticket! <BR> </H3>
+
+<H3> RECOMENDAMOS AL AL <TEXT STYLE = "COLOR: # 006500"> <A HREF="allspa.HTML"> "TODOS LOS PARTIDOS" </A> </TEXT> SECCI�N EN LA QUE PUEDE ENCONTRAR JUEGOS DE TODAS LAS ALEACIONES Y ELIJA A LOS QUE TIENEN MAYOR PROBABILIDAD. </H3></TEXT>
+   <CENTER> 
+   <BR>
+  
+    <button class="button" onclick="pag1();" >EASY BETTING</button>
+  
+<script>function pag1() {pag1=window.open("s1allspa.html","pag1","newwin","height=450, width=550,toolbar=no,scrollbars="+scroll+"menubar=no");}</script>
+  
+  
+  
+  
+  
+
+    <button class="button" onclick="matches3();" >FAST BET</button>
+<script>function matches3() {pag2=window.open("s2allspa.html","pag2","newwin","height=450, width=550,toolbar=no,scrollbars="+scroll+"menubar=no");}</script>
+</CENTER>
+<br>
+<TEXT STYLE="COLOR:BLACK">
+<H2 STYLE="COLOR:BLACK">COMBO BET</H2><BR><H3> The best combo bet for all championship!<BR><H3>
+<H2 STYLE="COLOR:BLACK">MY BEST BET</H2><BR><H3> My best bet!<BR></H3>
+
+   <CENTER> </TEXT>
+
+ <button class="button" onclick="s3();" >COMBO BET</button>
+<script>function s3() {pag3=window.open("s3allspa.html","pag3","newwin","height=450, width=550,toolbar=no,scrollbars="+scroll+"menubar=no");}</script>
+
+<button class="button" onclick="s4();" >MY BEST BET</button>
+<script>function s4() {pag4=window.open("s4allspa.html","pag4","newwin","height=450, width=550,toolbar=no,scrollbars="+scroll+"menubar=no");}</script>
+  </CENTER>
+  <br><br><br>
+
+
+<br><h2>Datasets:</h2><br><br>
+<a href="A1.csv"><img src="xls.png"> Austrian Bundesliga </a><br>
+<a href="AUS1.csv"><img src="xls.png"> Australian A-League </a><br>
+<a href="B1.csv"><img src="xls.png"> Belgian Jupiler Pro League </a><br>
+<a href="DAN1.csv"><img src="xls.png"> Danish Superligaen </a><br>
+<a href="N1.csv"><img src="xls.png"> Dutch Eredivisie </a><br>
+<a href="E0.csv"><img src="xls.png"> English Premier League </a><br>
+<a href="F1.csv"><img src="xls.png"> French Ligue 1 </a><br>
+<a href="D1.csv"><img src="xls.png"> German Bundesliga </a><br>
+<a href="G1.csv"><img src="xls.png"> Greek Super League </a><br>
+<a href="I1.csv"><img src="xls.png"> Italian Serie A </a><br>
+<a href="I2.csv"><img src="xls.png"> Italian Serie B </a><br>
+<a href="J1.csv"><img src="xls.png"> Japanese J1 League </a><br>
+<a href="POL1.csv"><img src="xls.png"> Polish Ekstraklasa </a><br>
+<a href="P1.csv"><img src="xls.png"> Portuguese Primeira Liga </a><br>
+<a href="SC0.csv"><img src="xls.png"> Scottish Premiership </a><br>
+<a href="E1.csv"><img src="xls.png"> Sky Bet Championship </a><br>
+<a href="E2.csv"><img src="xls.png"> Sky Bet League One </a><br>
+<a href="SP1.csv"><img src="xls.png"> Spanish La Liga </a><br>
+<a href="SWI1.csv"><img src="xls.png"> Swiss Super League </a><br>
+<a href="T1.csv"><img src="xls.png"> Turkish Super Lig </a><br>
+<a href="W1.csv"><img src="xls.png"> Welsh Premier League </a><br>
+
+<a href="n_metches.csv"><img src="xls.png"> NEXT MATCHES </a><br>
+<br><br><br><br>
+</div>
+  <div class="column" style="background-color:hsla(147, 50%, 47%, 0.01)">
+ 
+  
+  
+ </div>
+</div>
+  
+<div class="header" id="menupc">
+  <a href="Homepage.html"  class="logo" ><img class="immlogo1" src="logo.png">   SCORESFORECASTING</a>
+  
+  <div class="header-right" id="menu">
+    <a class="active" href="todayspa.html" id="active">partidos de hoy</a>
+    <a href="page2spa.html">CAMPEONATOS </a>
+    <a href="allspa.html">TODOS LOS PARTIDOS</a>
+    <a href="contactus.html">CONTACTO</a>
+  </div>
+  <div class="header-right"  id="menucell">
+  <a  class="active" id="active1" href="javascript:aprimenu();">Menu</a>
+  </div>
+</div>
+
+<script>
+var mySidebar = document.getElementById("mytendina");
+function aprimenu() {
+mySidebar.style.display = 'block';}
+
+</script>
+
+<div class="tendina" id="mytendina">
+    <a href="javascript:chiudimenu();" ><h1>close X</h1></a>
+    <a href="todayspa.html"><h1>partidos de hoy</h1></a>
+    <a href="page2spa.html"><h1>CAMPEONATOS</h1></a>
+    <a href="allspa.html"><h1>TODOS LOS PARTIDOS</h1></a>
+    <a href="contactus.html"><h1>CONTACTO</h1></a>
+</div>
+
+
+
+
+
+
+
+<script>
+var mySidebar = document.getElementById("mytendina");
+function chiudimenu() {
+    mySidebar.style.display = "none";
+    
+}
+</script>
+
+<center><br>Copyright &copy; ScoresForecasting.com<br>.</center>
+</div>
+
+<script>
+var myVar;
+
+function loader() {
+    myVar = setTimeout(showPage, 500);
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("myDiv").style.display = "block";
+}
+</script>
+</body>
+</html>

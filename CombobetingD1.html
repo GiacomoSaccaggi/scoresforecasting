@@ -1,0 +1,269 @@
+<html>
+
+<head>
+<style type="text/css">
+.inline {
+  background-color: #f7f7f7;
+  border:solid 1px #B0B0B0;
+}
+.error {
+	font-weight: bold;
+	color: #FF0000;
+}
+.warning {
+	font-weight: bold;
+}
+.message {
+	font-style: italic;
+}
+.source, .output, .warning, .error, .message {
+	padding: 0 1em;
+  border:solid 1px #F7F7F7;
+}
+.source {
+  background-color: #f5f5f5;
+}
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
+}
+.center {
+  text-align: center;
+}
+.hl.num {
+  color: #AF0F91;
+}
+.hl.str {
+  color: #317ECC;
+}
+.hl.com {
+  color: #AD95AF;
+  font-style: italic;
+}
+.hl.opt {
+  color: #000000;
+}
+.hl.std {
+  color: #585858;
+}
+.hl.kwa {
+  color: #295F94;
+  font-weight: bold;
+}
+.hl.kwb {
+  color: #B05A65;
+}
+.hl.kwc {
+  color: #55aa55;
+}
+.hl.kwd {
+  color: #BC5A65;
+  font-weight: bold;
+}
+</style>
+<title>ScoresForecasting.com</title>
+<link rel="shortcut icon" href="logo.ico" />
+
+
+<style>
+body{text-transform:uppercase;
+
+font-family:"Segoe UI",Arial,sans-serif
+}
+#customers {
+    border-collapse: collapse;
+    width: 100%;
+    top:5%;
+    background-color: #D2D2D2;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+
+#customers tr:nth-child(1){background-color: #E12000 ;color:white;}
+
+
+#customers tr:nth-child(even){background-color:#D2D2D2  ;}
+
+#customers tr:hover {background-color: #E12000;color: #fff;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #d9ffcc;
+    color: white;
+}
+
+
+.column {
+    float: left;
+    width: 20%;
+}
+.colonna {
+    float: left;
+    width: 60%;
+}
+
+
+.quota{
+width: 50%;
+padding: 2%;
+text-align: center;
+
+  border-radius: 4px;
+}
+
+/*pulsante per andare avanti*/
+.pulsante {
+  display: inline-block;
+  font-size: 30px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  border-color: #E12000;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 2%;
+  width: 40%;
+  transition: all 0.5s;
+  background-color:#D2D2D2;
+}
+
+.pulsante:hover {
+  background-color: #E12000;
+  box-shadow: 0 0 0 ;}
+
+.pulsante:active {
+  transform: translateY(4px);
+}
+
+
+.pulsante span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.pulsante span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.pulsante:hover span {
+  padding-right: 25px;
+}
+
+.pulsante:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+form{
+border: 1px solid #006500;
+    padding: 8px;
+}
+
+#scheda{
+background-color:#006500;
+color:white;
+font-size: 2px;
+}
+h1{
+
+font-size: 40px;
+}
+@media only screen and (max-width: 1024px) {
+
+.column{display:none;}
+.colonna{width: 100%;}
+}
+
+</style>
+
+
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+<div class="column" style="background-color:hsla(147, 50%, 47%, 0.01)"><br>
+    
+     </div>
+  
+<div class="colonna" ><br>
+<div id="stampa" >
+<div id="scheda" >
+<br><center><h1>Game sheet</h1></center><br></div>
+
+<div style=display:none;>
+[1] "</div><table id=customers><tr><td><strong>DATE</strong></td><td><strong>MATCHES</strong></td><td><strong>QUOTES</strong></td></tr>  <tr><td> 02 Dec 2018 - 14:30 </td><td> RB Leipzig - Borussia M<f6>nchengladbach <br>       -> goal + Over 2,5 </td><td>1.40 - 2.00</td></tr> </table><div style=display:none;>"
+
+</div>
+
+<p>ScoresForecasting.com do not guarantee and we are not responsible for any losses due to the bet.</p>
+
+ <center>If you bet <p id="scommessa" style="display:inline">0</p> $ you win <p id="vincita" style="display:inline">0</p> $</center><br><br>
+
+</div>
+<form name="myForm">
+    <center>
+    How much money do you want to bet?<br>
+    <h2><input type="textfield" class="quota" name="soldi" value="" placeholder="Money..."></h2>
+  <br><br>
+    
+    <input type="button" class="pulsante" onclick="calcolo();" value="Calculate"><br></center><br>
+    
+    <center>Your expected winnings:<p id="vincita2">0</p></center>
+    
+
+ <button class="pulsante" onclick="cmd('stampa')">Print</button>
+
+    </form>
+BONUS:  1<script>function calcolo(){var x = document.forms["myForm"]["soldi"].value;var y = 2;document.getElementById("vincita").innerHTML = Math.round(x * y*1*100)/100;document.getElementById("vincita2").innerHTML = Math.round(x * y*1*100)/100;document.getElementById("scommessa").innerHTML = x;}</script>
+ 
+
+</div>
+<script>
+		function cmd(stampa){
+			var printContents = document.getElementById(stampa).innerHTML;
+			var originalContents = document.body.innerHTML;
+			
+			document.body.innerHTML = printContents;
+			window.print();
+			
+			document.body.innerHTML = originalContents;
+		}
+	</script>
+<div id="editor">
+
+<div class="column" style="background-color:hsla(147, 50%, 47%, 0.01)"><br>
+    
+   
+    
+    
+     </div>
+
+
+
+</body>
+</html>
